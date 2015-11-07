@@ -49,7 +49,10 @@ a {
 	width: 100%;
 }
 ```
-5) You can omit steps 2) and 3) and install modules via bower:
+5) add [FontAwesome](https://fortawesome.github.io/Font-Awesome/) for icons (you don't have to download all icons, customize)
+Used icons: 
+
+You can omit steps 2) and 3) and install modules via bower:
 ```bash
 bower install pure
 bower install jquery-dropdown
