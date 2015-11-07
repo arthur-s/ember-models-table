@@ -1,8 +1,12 @@
-<a href="#" {{action "gotoFirst"}} class={{if gotoBackEnabled 'enabled' 'disabled'}}><span
-    class="glyphicon glyphicon-chevron-left"></span></a>&nbsp;
-<a href="#" {{action "gotoPrev"}} class={{if gotoBackEnabled 'enabled' 'disabled'}}><span
-    class="glyphicon glyphicon-menu-left"></span></a>&nbsp;
-<a href="#" {{action "gotoNext"}} class={{if gotoForwardEnabled 'enabled' 'disabled'}}><span
-    class="glyphicon glyphicon-menu-right"></span></a>&nbsp;
-<a href="#" {{action "gotoLast"}} class="{{if gotoForwardEnabled 'enabled' 'disabled'}}"><span
-    class="glyphicon glyphicon-chevron-right"></span></a>
+<a href="#" {{action "gotoFirst"}} class={{if gotoBackEnabled 'enabled' 'disabled'}}>
+	<i class="icon-left-open"></i>
+</a>&nbsp;
+<a href="#" {{action "gotoPrev"}} class={{if gotoBackEnabled 'enabled' 'disabled'}}>
+	<i class="icon-left-open-big"></i>
+</a>&nbsp;
+<a href="#" {{action "gotoNext"}} class={{if gotoForwardEnabled 'enabled' 'disabled'}}>
+	<i class="icon-right-open-big"></i>
+</a>&nbsp;
+<a href="#" {{action "gotoLast"}} class="{{if gotoForwardEnabled 'enabled' 'disabled'}}">
+	<i class="icon-right-open"></i>
+</a>

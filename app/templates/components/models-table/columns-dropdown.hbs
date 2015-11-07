@@ -1,23 +1,24 @@
 <div class="pull-right columns-dropdown">
   <div class="btn-group">
-    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-      {{messages.columns-title}} <span class="caret"></span>
+    <button class="pure-button" type="button" data-jq-dropdown="#jq-dropdown-1">
+      {{messages.columns-title}} <i class="icon-angle-circled-down"></i>
     </button>
-    <ul class="dropdown-menu pull-right">
-      <li><a {{action "showAllColumns" column bubbles=false}} href="#">{{messages.columns-showAll}}</a></li>
-      <li><a {{action "hideAllColumns" column bubbles=false}} href="#">{{messages.columns-hideAll}}</a></li>
-      <li><a {{action "restoreDefaultVisibility" column bubbles=false}} href="#">{{messages.columns-restoreDefaults}}</a></li>
-      <li class="divider"></li>
-      {{#each processedColumns as |column|}}
-        {{#if column.mayBeHidden }}
-          <li>
-            <a {{action "toggleHidden" column bubbles=false}} href="#">
-                <span class="glyphicon {{if column.isVisible 'glyphicon-check' 'glyphicon-unchecked'}}"></span> {{column.title}}
-            </a>
-          </li>
-        {{/if}}
-      {{/each}}
-    </ul>
+    <div id="jq-dropdown-1" class="jq-dropdown jq-dropdown-tip">
+      <ul class="jq-dropdown-menu pull-right">
+        <li><a {{action "showAllColumns" column bubbles=false}} href="#">{{messages.columns-showAll}}</a></li>
+        <li><a {{action "hideAllColumns" column bubbles=false}} href="#">{{messages.columns-hideAll}}</a></li>
+        <li><a {{action "restoreDefaultVisibility" column bubbles=false}} href="#">{{messages.columns-restoreDefaults}}</a></li>
+        <li class="jq-dropdown-divider"></li>
+        {{#each processedColumns as |column|}}
+          {{#if column.mayBeHidden }}
+            <li>
+              <a {{action "toggleHidden" column bubbles=false}} href="#">
+                  <i class="icon-{{if column.isVisible 'check' 'check-empty'}}"></i> {{column.title}}
+              </a>
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </div>

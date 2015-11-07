@@ -1,33 +1,34 @@
-<div class="table-footer clearfix">
+<div class="pure-g table-footer clearfix">
   {{! table summary start }}
-  <div class="{{if useNumericPagination 'col-md-3' 'col-md-8'}} {{if useNumericPagination 'col-sm-3' 'col-sm-8'}} table-summary">
+  <div class="{{if useNumericPagination 'pure-u-1-3 pure-u-md-1-3' 'pure-u-1 pure-u-md-2-3'}} table-summary">
     {{summary}}
   </div>
   {{! table summary end }}
-  {{! pagesize selection start }}
-  <div class="col-md-2 col-sm-2">
-    <div class="pull-right">
-
-      <select class="form-control changePageSize" {{action 'changePageSize' on='change'}}>
+  
+  {{! right side controls begin }}
+  <div class="{{if useNumericPagination 'pure-u-2-3 pure-u-md-2-3' 'pure-u-1 pure-u-md-1-3'}}">
+    <div class="pull-right pure-form">
+      {{! pagesize selection start }}
+      <select class="changePageSize" {{action 'changePageSize' on='change'}}>
         {{#each pageSizeValues key="@index" as |item|}}
           <option value="{{item}}" selected={{is-equal item selectedValue}}>
             {{item}}
           </option>
         {{/each}}
       </select>
-
+      {{! pagesize selection end }}
+      {{! pagination start }}
+      {{#if useNumericPagination}}
+        <div class="pull-right">
+          {{partial numericPaginationTemplate}}
+        </div>
+      {{else}}
+        <div class="pull-right">
+          {{partial simplePaginationTemplate}}
+        </div>
+      {{/if}}
+      {{! pagination end }}
     </div>
-  </div>
-  {{! pagesize selection end }}
-  {{! pagination start }}
-  {{#if useNumericPagination}}
-  <div class="table-nav col-md-7 col-sm-7">
-    {{partial numericPaginationTemplate}}
-  </div>
-  {{else}}
-    <div class="table-nav col-md-2 col-sm-2">
-      {{partial simplePaginationTemplate}}
-    </div>
-  {{/if}}
-  {{! pagination end }}
+  </div> 
+  {{! right side controls end }}
 </div>

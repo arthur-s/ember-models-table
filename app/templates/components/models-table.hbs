@@ -14,7 +14,7 @@
   <div style="clear:both"/>
 
   <div class="inner-table-wrapper">
-    <table class="{{if tableStriped 'table-striped'}} {{if tableBordered 'table-bordered'}} {{if tableCondensed 'table-condensed'}} table">
+    <table class="pure-table {{if tableStriped 'pure-table-striped'}} {{if tableBordered 'pure-table-bordered'}} {{if tableCondensed 'table-condensed'}}">
       {{! table header start }}
       <thead>
       <tr>
@@ -22,19 +22,19 @@
           {{#if column.isVisible}}
             <td class="table-header" {{action "sort" column}}>
               {{column.title}}
-              <span class="{{if column.sortAsc 'glyphicon-triangle-bottom'}} {{if column.sortDesc 'glyphicon-triangle-top'}} glyphicon"></span>
+              <i class="{{if column.sortAsc 'icon-down-dir'}}  {{if column.sortDesc 'icon-up-dir'}}"></i>
             </td>
           {{/if}}
         {{/each}}
       </tr>
       {{#if useFilteringByColumns}}
-        <tr>
+        <tr class="pure-form stretch">
           {{#each processedColumns as |column|}}
             {{#if column.isVisible}}
               <td>
                 {{#if column.useFilter}}
                   {{#if column.filterWithSelect}}
-                    <select class="form-control changeFilterForColumn {{column.propertyName}}" {{action 'changeFilterForColumn' column on='change'}}>
+                    <select class="changeFilterForColumn {{column.propertyName}}" {{action 'changeFilterForColumn' column on='change'}}>
                       {{#each column.filterOptions key="@index" as |item|}}
                         <option value="{{item}}" selected={{is-equal item selectedValue}}>
                           {{item}}
@@ -42,7 +42,7 @@
                       {{/each}}
                     </select>
                   {{else}}
-                    {{input type="text" value=column.filterString class="form-control"}}
+                    {{input type="text" value=column.filterString}}
                   {{/if}}
                 {{/if}}
               </td>

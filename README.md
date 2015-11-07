@@ -1,20 +1,67 @@
-# Ember-models-table
+# Ember-models-table - Pure.css edition
 
-[![Build Status](https://travis-ci.org/onechiporenko/ember-models-table.svg?branch=master)](https://travis-ci.org/onechiporenko/ember-models-table)
-[![Codacy Badge](https://www.codacy.com/project/badge/062ef689838e43dfa46eecd1f74f22af)](https://www.codacy.com/app/cv_github/ember-models-table)
-[![Dependency Status](https://www.versioneye.com/user/projects/554b59355d4f9a0b990014f2/badge.svg?style=flat)](https://www.versioneye.com/user/projects/554b59355d4f9a0b990014f2)
-[![Dependency Status](https://www.versioneye.com/user/projects/554b59325d4f9a606f001352/badge.svg?style=flat)](https://www.versioneye.com/user/projects/554b59325d4f9a606f001352)
-![io.js supported](https://img.shields.io/badge/io.js-supported-green.svg?style=flat)
-[![npm version](https://badge.fury.io/js/ember-models-table.png)](http://badge.fury.io/js/ember-models-table)
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
-[![Downloads](http://img.shields.io/npm/dm/ember-models-table.svg)](https://www.npmjs.com/package/ember-models-table)
+## About
+It is a fork from [onechiporenko/ember-models-table](https://github.com/onechiporenko/ember-models-table), I changed templates from [Bootstrap](http://getbootstrap.com/) to [Pure.css](http://purecss.io/)
 
 ## Install
 
+1) in your new ember-cli run
 ```bash
-ember install ember-models-table
+ember install https://github.com/arthur-s/ember-models-table.git
+```
+2) Ad to your project two Pure.css files (base and for responsive grids)
+```
+ <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+ <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+<!--<![endif]-->
+```
+
+3) For dropdown menu i used [jquery-dropdown](https://github.com/claviska/jquery-dropdown). Download this module and add
+```
+<link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
+<script type="text/javascript" src="jquery.dropdown.js"></script>
+```
+
+4) add extra styles to project/app/styles/app.css
+```css
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+.pull-left {
+    float: left!important;
+}
+.pull-right {
+    float: right!important;
+}
+.stretch input{
+	width: 100%;
+}
+```
+5) You can omit steps 2) and 3) and install modules via bower:
+```bash
+bower install pure
+bower install jquery-dropdown
+```
+then add this lines to project/ember-cli-build.js before the line  *return app.toTree();*
+```javascript
+  app.import(app.bowerDirectory + '/pure/pure-min.css');
+  app.import(app.bowerDirectory + '/pure/grids-responsive-min.css');
+  app.import(app.bowerDirectory + '/jquery-dropdown/jquery.dropdown.min.css');
+  app.import(app.bowerDirectory + '/jquery-dropdown/jquery.dropdown.min.js');
 ```
 
 ## Usage
 
-See [Demo](http://onechiporenko.github.io/ember-models-table/)
+For documentation and demos see original [onechiporenko/ember-models-table](https://github.com/onechiporenko/ember-models-table) 
