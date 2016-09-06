@@ -4,31 +4,20 @@
     {{summary}}
   </div>
   {{! table summary end }}
-  
-  {{! right side controls begin }}
-  <div class="{{if useNumericPagination 'pure-u-2-3 pure-u-md-2-3' 'pure-u-1 pure-u-md-1-3'}}">
-    <div class="pull-right pure-form">
-      {{! pagesize selection start }}
-      <select class="changePageSize" {{action 'changePageSize' on='change'}}>
-        {{#each pageSizeValues key="@index" as |item|}}
-          <option value="{{item}}" selected={{is-equal item selectedValue}}>
-            {{item}}
-          </option>
-        {{/each}}
-      </select>
-      {{! pagesize selection end }}
-      {{! pagination start }}
-      {{#if useNumericPagination}}
-        <div class="pull-right">
-          {{partial numericPaginationTemplate}}
-        </div>
-      {{else}}
-        <div class="pull-right">
-          {{partial simplePaginationTemplate}}
-        </div>
-      {{/if}}
-      {{! pagination end }}
+  {{! pagesize selection start }}
+  {{#if showPageSize}}
+    {{partial pageSizeTemplate}}
+  {{/if}}
+  {{! pagesize selection end }}
+  {{! pagination start }}
+  {{#if useNumericPagination}}
+    <div class="pull-right">
+      {{partial numericPaginationTemplate}}
     </div>
-  </div> 
-  {{! right side controls end }}
+  {{else}}
+    <div class="pull-right">
+      {{partial simplePaginationTemplate}}
+    </div>
+  {{/if}}
+  {{! pagination end }}
 </div>

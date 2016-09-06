@@ -51,6 +51,7 @@ a {
 ```
 5) add [FontAwesome](https://fortawesome.github.io/Font-Awesome/) for icons (you don't have to download all icons, customize)
 
+## Requirements
 
 You can omit steps 2) and 3) and install modules via bower:
 ```bash
